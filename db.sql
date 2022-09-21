@@ -130,6 +130,16 @@ CREATE TABLE IF NOT EXISTS matiere (
     name VARCHAR (50)
 )ENGINE=InnoDB;
 
+INSERT INTO `matiere`(`name`) 
+VALUES ('Informatique');
+INSERT INTO `matiere`(`name`) 
+VALUES ('Math');
+INSERT INTO `matiere`(`name`) 
+VALUES ('Français');
+INSERT INTO `matiere`(`name`) 
+VALUES ('Arabe');
+INSERT INTO `matiere`(`name`) 
+VALUES ('Islamic');
 CREATE TABLE IF NOT EXISTS enseignant (
     id INT AUTO_INCREMENT,
     dateFonction Date,
@@ -140,11 +150,37 @@ CREATE TABLE IF NOT EXISTS enseignant (
     FOREIGN KEY (id_matiere) REFERENCES matiere (id) 
 )ENGINE=InnoDB;
 
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/10/05',1,1);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/11/23',2,3);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',3,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',4,4);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',5,5);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',6,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',7,3);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',8,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) 
+VALUES ('2022/12/12',9,1);
+
 
 CREATE TABLE IF NOT EXISTS role (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR (30) UNIQUE
 )ENGINE=InnoDB;
+
+INSERT INTO `role`(`name`) 
+VALUES ('Admin');
+INSERT INTO `role`(`name`) 
+VALUES ('Enseignant');
+INSERT INTO `role`(`name`) 
+VALUES ('Etudiant');
 
 CREATE TABLE IF NOT EXISTS user_role (
     id_user INT,
