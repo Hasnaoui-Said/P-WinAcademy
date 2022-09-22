@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(50) UNIQUE,
     phone VARCHAR(30) UNIQUE,
     password VARCHAR(50),
-    status VARCHAR (30)
+    status BOOLEAN
 )ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS role (
@@ -66,7 +66,9 @@ CREATE TABLE IF NOT EXISTS enseignant (
     id_user INT PRIMARY key,
     FOREIGN KEY (id_user) REFERENCES users(id),
     id_matiere INT,
-    FOREIGN KEY (id_matiere) REFERENCES matiere (id) 
+    FOREIGN KEY (id_matiere) REFERENCES matiere (id), 
+    id_departement INT,
+    FOREIGN KEY (id_departement) REFERENCES departement(id)
 )ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS responsable (
@@ -132,89 +134,89 @@ INSERT INTO `departement`(`name`, `description`, `id_college`) VALUES ('Françai
 
 
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Tayeb', 'SOUINI', 'tayebsouini@gmail.com', '0607189673', '1234', 'activated');
+VALUES ('Tayeb', 'SOUINI', 'tayebsouini@gmail.com', '0607189673', '1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Aymen', 'Darji', 'AymenDarji@gmail.com', '0607432661', '1234', 'activated');
+VALUES ('Aymen', 'Darji', 'AymenDarji@gmail.com', '0607432661', '1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Abdelaziz', 'Afrakla', 'AbdelazizAfrakla@gmail.com', '0607439671','1234', 'activated');
+VALUES ('Abdelaziz', 'Afrakla', 'AbdelazizAfrakla@gmail.com', '0607439671','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Abdeslam', 'Loukili', 'Abdeslamloukili@gmail.com', '0607199523','1234', 'activated');
+VALUES ('Abdeslam', 'Loukili', 'Abdeslamloukili@gmail.com', '0607199523','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Abdessalam', 'Elboukri', 'AbdelBoukri@gmail.com', '060719532','1234', 'activated');
+VALUES ('Abdessalam', 'Elboukri', 'AbdelBoukri@gmail.com', '060719532','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Maher', 'Nourdine', 'Maher@gmail.com', '0607185445','1234', 'disactivated');
+VALUES ('Maher', 'Nourdine', 'Maher@gmail.com', '0607185445','1234', 'dis1');
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Mourad', 'Esserakh', 'MouradEsserakh@gmail.com', '0607187806','1234', 'activated');
+VALUES ('Mourad', 'Esserakh', 'MouradEsserakh@gmail.com', '0607187806','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Fouad', 'Rawan', 'Fouadrawan@gmail.com', '0607180099','1234', 'activated');
+VALUES ('Fouad', 'Rawan', 'Fouadrawan@gmail.com', '0607180099','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Adil', 'Ellahya', 'AdilEllahya@gmail.com', '0607180343','1234', 'disactivated');
+VALUES ('Adil', 'Ellahya', 'AdilEllahya@gmail.com', '0607180343','1234', 'dis1');
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('Mohamed', 'Bouzid', 'Mohamedbouzid@gmail.com', '0607089343','1234', 'activated');
+VALUES ('Mohamed', 'Bouzid', 'Mohamedbouzid@gmail.com', '0607089343','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('hamza', 'hadmdi', 'hadmdi@gmail.com', '0607189343','1234', 'activated');
+VALUES ('hamza', 'hadmdi', 'hadmdi@gmail.com', '0607189343','1234', 0);
 
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Tayeb', 'hamidi', 'hamidi@gmail.com', '0697189671', '1234', 'activated');
+VALUES ('Tayeb', 'hamidi', 'hamidi@gmail.com', '0697189671', '1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Aymen', 'hamzawi', 'hamzaoui@gmail.com', '0607432671', '1234', 'activated');
+VALUES ('Aymen', 'hamzawi', 'hamzaoui@gmail.com', '0607432671', '1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Abdelaziz', 'haki', 'Abdelazizhaki@gmail.com', '0685439671','1234', 'activated');
+VALUES ('Abdelaziz', 'haki', 'Abdelazizhaki@gmail.com', '0685439671','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Abdeslam', 'souiri', 'souiri@gmail.com', '0608199593','1234', 'activated');
+VALUES ('Abdeslam', 'souiri', 'souiri@gmail.com', '0608199593','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('hamza', 'harru', 'harry55@gmail.com', '060714532','1234', 'activated');
+VALUES ('hamza', 'harru', 'harry55@gmail.com', '060714532','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Maher', 'ghalibi', 'ghalibiMahir@gmail.com', '0607182445','1234', 'disactivated');
+VALUES ('Maher', 'ghalibi', 'ghalibiMahir@gmail.com', '0607182445','1234', 'dis1');
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Mourad', 'essadiq', 'Mouradessadiq@gmail.com', '0607180896','1234', 'activated');
+VALUES ('Mourad', 'essadiq', 'Mouradessadiq@gmail.com', '0607180896','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('karim', 'radwouini', 'radwouini34@gmail.com', '0607150999','1234', 'activated');
+VALUES ('karim', 'radwouini', 'radwouini34@gmail.com', '0607150999','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Adil', 'elahya', 'elahya345@gmail.com', '0609089343','1234', 'disactivated');
+VALUES ('Adil', 'elahya', 'elahya345@gmail.com', '0609089343','1234', 'dis1');
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('Mohamed', 'krimo', 'krimo@gmail.com', '0608189343','1234', 'activated');
+VALUES ('Mohamed', 'krimo', 'krimo@gmail.com', '0608189343','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('said', 'hadmdi', 'saidham444@gmail.com', '0607589343','1234', 'activated');
+VALUES ('said', 'hadmdi', 'saidham444@gmail.com', '0607589343','1234', 0);
 
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('houria', 'houria', 'hassouni@gmail.com', '0607183671', '1234', 'activated');
+VALUES ('houria', 'houria', 'hassouni@gmail.com', '0607183671', '1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('kamal', 'tariq', 'Kamal@gmail.com', '0607432971', '1234', 'activated');
+VALUES ('kamal', 'tariq', 'Kamal@gmail.com', '0607432971', '1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('abdellah', 'hasnaoui', 'abdohasnaoui@gmail.com', '0605439671','1234', 'activated');
+VALUES ('abdellah', 'hasnaoui', 'abdohasnaoui@gmail.com', '0605439671','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('fatima', 'fati', 'fati@gmail.com', '0607119523','1234', 'activated');
+VALUES ('fatima', 'fati', 'fati@gmail.com', '0607119523','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('hassan', 'yaeqoubi', 'yaeqoubi@gmail.com', '060718532','1234', 'activated');
+VALUES ('hassan', 'yaeqoubi', 'yaeqoubi@gmail.com', '060718532','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('hamza', 'nassiri', 'ghalibi@gmail.com', '0607185495','1234', 'disactivated');
+VALUES ('hamza', 'nassiri', 'ghalibi@gmail.com', '0607185495','1234', 'dis1');
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('yassine', 'essadiq', 'yassine66@gmail.com', '0607187296','1234', 'activated');
+VALUES ('yassine', 'essadiq', 'yassine66@gmail.com', '0607187296','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('radouane', 'raji', 'radouane665@gmail.com', '0607180909','1234', 'activated');
+VALUES ('radouane', 'raji', 'radouane665@gmail.com', '0607180909','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`) 
-VALUES ('Adil', 'mansouri', 'mansouri978@gmail.com', '0507189343','1234', 'disactivated');
+VALUES ('Adil', 'mansouri', 'mansouri978@gmail.com', '0507189343','1234', 1);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('khadija', 'touza', 'khadija@gmail.com', '0607989343','1234', 'activated');
+VALUES ('khadija', 'touza', 'khadija@gmail.com', '0607989343','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('saida', 'hssan', 'saidahssan@gmail.com', '0607889343','1234', 'activated');
+VALUES ('saida', 'hssan', 'saidahssan@gmail.com', '0607889343','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('abderahman', 'zahri', 'abderahman@gmail.com', '0607789343','1234', 'activated');
+VALUES ('abderahman', 'zahri', 'abderahman@gmail.com', '0607789343','1234', 0);
 INSERT INTO `users`(`firstname`, `lastname`, `email`, `phone`, `password`, `status`)
-VALUES ('hafssa', 'twinssi', 'twinssihafssa@gmail.com', '0607689343','1234', 'activated');
+VALUES ('hafssa', 'twinssi', 'twinssihafssa@gmail.com', '0607689343','1234', 0);
 
 
 
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/01/05',1,1);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/11/23',2,2);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/12/12',3,3);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/12/12',4,4);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/12/12',5,5);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/12/12',6,4);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/09/12',7,3);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/12/12',34,2);
-INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`) VALUES ('2022/07/12',35,5);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/01/05',1,1,1);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/11/23',2,2,1);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/12/12',3,3,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/12/12',4,4,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/12/12',5,5,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/12/12',6,4,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/09/12',7,3,1);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/12/12',34,2,2);
+INSERT INTO `enseignant`(`dateFonction`,`id_user`,`id_matiere`, `id_departement`) VALUES ('2022/07/12',35,5,2);
 
 
 
