@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 -- Déchargement des données de la table `adresse`
 --
 
-INSERT INTO `adresse` (`id`, `ville`, `pays`, `code_postal`, `adresse`) VALUES
+/* INSERT INTO `adresse` (`id`, `ville`, `pays`, `code_postal`, `adresse`) VALUES
 (1, 'Youssoufia', 'Maroc', '46300', 'Numero 143 Mohammed El khatib Qu El Mohammadi'),
 (2, 'Safi', 'Maroc', '46000', '3 rue El Manfalouti Qu El Massira'),
 (3, 'Meknes', 'Maroc', '40000', 'N 43 rue sebtah Qu El Minzeh'),
@@ -52,7 +52,7 @@ INSERT INTO `adresse` (`id`, `ville`, `pays`, `code_postal`, `adresse`) VALUES
 (8, 'Berlin', 'Germany', '160000', 'adresse berlin 1'),
 (9, 'Moscow', 'Russie', '20300', 'this is moscow'),
 (10, 'Zenit', 'Russie', '170002', 'this is zenit san pitarsbeurg'),
-(11, 'Munich', 'Germany', '232324', 'Munich MoKataa');
+(11, 'Munich', 'Germany', '232324', 'Munich MoKataa'); */
 
 -- --------------------------------------------------------
 
@@ -74,10 +74,10 @@ CREATE TABLE IF NOT EXISTS `college` (
 -- Déchargement des données de la table `college`
 --
 
-INSERT INTO `college` (`numero`, `name`, `site`, `id_adresse`) VALUES
+/* INSERT INTO `college` (`numero`, `name`, `site`, `id_adresse`) VALUES
 (1, 'Moussa Ibn Tachfin', 'www.moussa.ma', 1),
 (2, 'Youcode', 'www.Youcode.ma', 2),
-(3, 'Kachkat', 'www.kachkat.ma', 3);
+(3, 'Kachkat', 'www.kachkat.ma', 3); */
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `departement` (
 -- Déchargement des données de la table `departement`
 --
 
-INSERT INTO `departement` (`id`, `name`, `description`, `id_college`) VALUES
+/* INSERT INTO `departement` (`id`, `name`, `description`, `id_college`) VALUES
 (1, 'informatique', 'this is desc 1', 1),
 (2, 'informatique', 'this is desc 2', 2),
 (3, 'informatique', 'this is desc 3', 3),
@@ -114,7 +114,7 @@ INSERT INTO `departement` (`id`, `name`, `description`, `id_college`) VALUES
 (12, 'Arabe', 'this is desc 2', 3),
 (13, 'Français', 'this is desc 10', 1),
 (14, 'Français', 'this is desc 10', 2),
-(15, 'Français', 'this is desc 10', 3);
+(15, 'Français', 'this is desc 10', 3); */
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `enseignant` (
 -- Déchargement des données de la table `enseignant`
 --
 
-INSERT INTO `enseignant` (`dateFonction`, `id_user`, `id_matiere`, `id_departement`) VALUES
+/* INSERT INTO `enseignant` (`dateFonction`, `id_user`, `id_matiere`, `id_departement`) VALUES
 ('2022-01-05', 1, 1, 1),
 ('2022-11-23', 2, 2, 1),
 ('2022-12-12', 3, 3, 2),
@@ -146,7 +146,7 @@ INSERT INTO `enseignant` (`dateFonction`, `id_user`, `id_matiere`, `id_departeme
 ('2022-12-12', 6, 4, 2),
 ('2022-09-12', 7, 3, 1),
 ('2022-12-12', 34, 2, 2),
-('2022-07-12', 35, 5, 2);
+('2022-07-12', 35, 5, 2); */
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
 -- Déchargement des données de la table `etudiant`
 --
 
-INSERT INTO `etudiant` (`anneeEntree`, `id_user`) VALUES
+/* INSERT INTO `etudiant` (`anneeEntree`, `id_user`) VALUES
 ('2020-09-01', 8),
 ('2020-09-01', 9),
 ('2020-09-01', 10),
@@ -191,7 +191,7 @@ INSERT INTO `etudiant` (`anneeEntree`, `id_user`) VALUES
 ('2020-09-01', 30),
 ('2020-09-01', 31),
 ('2020-09-01', 32),
-('2020-09-01', 33);
+('2020-09-01', 33); */
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
 -- Déchargement des données de la table `evaluation`
 --
 
-INSERT INTO `evaluation` (`id_etudiant`, `id_matiere`, `date`, `note`) VALUES
+/* INSERT INTO `evaluation` (`id_etudiant`, `id_matiere`, `date`, `note`) VALUES
 (8, 1, '2021-11-12', 8),
 (8, 2, '2022-01-12', 8),
 (8, 3, '2021-03-12', 8),
@@ -343,7 +343,7 @@ INSERT INTO `evaluation` (`id_etudiant`, `id_matiere`, `date`, `note`) VALUES
 (33, 2, '2022-01-12', 12),
 (33, 3, '2021-03-12', 12),
 (33, 4, '2021-04-12', 12),
-(33, 5, '2021-06-12', 12);
+(33, 5, '2021-06-12', 12); */
 
 -- --------------------------------------------------------
 
@@ -362,12 +362,12 @@ CREATE TABLE IF NOT EXISTS `matiere` (
 -- Déchargement des données de la table `matiere`
 --
 
-INSERT INTO `matiere` (`id`, `name`) VALUES
+/* INSERT INTO `matiere` (`id`, `name`) VALUES
 (1, 'Informatique'),
 (2, 'Math'),
 (3, 'Français'),
 (4, 'Arabe'),
-(5, 'Islamic');
+(5, 'Islamic'); */
 
 -- --------------------------------------------------------
 
@@ -385,18 +385,20 @@ CREATE TABLE IF NOT EXISTS `responsable` (
   KEY `id_departement` (`id_departement`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Add constraint unique
+ALTER TABLE responsable ADD CONSTRAINT id_departement_date_unique UNIQUE (id_departement, dateDebut);
 --
 -- Déchargement des données de la table `responsable`
 --
 
-INSERT INTO `responsable` (`id_enseignant`, `id_departement`, `dateDebut`, `dateFin`) VALUES
+/* INSERT INTO `responsable` (`id_enseignant`, `id_departement`, `dateDebut`, `dateFin`) VALUES
 (1, 1, '2020-12-12', '2021-12-12'),
 (2, 2, '2020-12-12', '2021-01-12'),
 (3, 3, '2020-12-12', '2021-12-12'),
 (4, 4, '2020-12-12', '2021-01-12'),
 (5, 5, '2020-12-12', '2021-12-12'),
 (6, 6, '2020-12-12', '2021-01-12'),
-(7, 7, '2020-12-12', '2021-12-12');
+(7, 7, '2020-12-12', '2021-12-12'); */
 
 -- --------------------------------------------------------
 
@@ -416,10 +418,10 @@ CREATE TABLE IF NOT EXISTS `role` (
 -- Déchargement des données de la table `role`
 --
 
-INSERT INTO `role` (`id`, `name`) VALUES
+/* INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'Admin'),
 (2, 'Enseignant'),
-(3, 'Etudiant');
+(3, 'Etudiant'); */
 
 -- --------------------------------------------------------
 
@@ -445,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `phone`, `password`, `status`) VALUES
+/* INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `phone`, `password`, `status`) VALUES
 (1, 'Tayeb', 'SOUINI', 'tayebsouini@gmail.com', '0607189673', '1234', 0),
 (2, 'Aymen', 'Darji', 'AymenDarji@gmail.com', '0607432661', '1234', 0),
 (3, 'Abdelaziz', 'Afrakla', 'AbdelazizAfrakla@gmail.com', '0607439671', '1234', 0),
@@ -480,7 +482,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `phone`, `password`
 (32, 'khadija', 'touza', 'khadija@gmail.com', '0607989343', '1234', 0),
 (33, 'saida', 'hssan', 'saidahssan@gmail.com', '0607889343', '1234', 0),
 (34, 'abderahman', 'zahri', 'abderahman@gmail.com', '0607789343', '1234', 0),
-(35, 'hafssa', 'twinssi', 'twinssihafssa@gmail.com', '0607689343', '1234', 0);
+(35, 'hafssa', 'twinssi', 'twinssihafssa@gmail.com', '0607689343', '1234', 0); */
 
 -- --------------------------------------------------------
 
@@ -501,7 +503,7 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 -- Déchargement des données de la table `user_role`
 --
 
-INSERT INTO `user_role` (`id_user`, `id_role`, `date`) VALUES
+/* INSERT INTO `user_role` (`id_user`, `id_role`, `date`) VALUES
 (1, 1, '2021-12-12'),
 (2, 2, '2021-12-12'),
 (3, 2, '2021-12-12'),
@@ -534,7 +536,7 @@ INSERT INTO `user_role` (`id_user`, `id_role`, `date`) VALUES
 (30, 3, '2021-12-12'),
 (31, 3, '2021-12-12'),
 (32, 3, '2021-12-12'),
-(33, 3, '2021-12-12');
+(33, 3, '2021-12-12'); */
 
 --
 -- Contraintes pour les tables déchargées
