@@ -42,9 +42,8 @@ CREATE TABLE IF NOT EXISTS user_role (
 )ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS etudiant (
-    id INT PRIMARY KEY AUTO_INCREMENT,
     anneeEntree DATE,
-    id_user INT,
+    id_user INT PRIMARY KEY,
     FOREIGN KEY (id_user) REFERENCES users(id)
 )ENGINE=InnoDB;
 
@@ -63,9 +62,8 @@ CREATE TABLE IF NOT EXISTS matiere (
 )ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS enseignant (
-    id INT PRIMARY KEY AUTO_INCREMENT,
     dateFonction Date,
-    id_user INT ,
+    id_user INT PRIMARY key,
     FOREIGN KEY (id_user) REFERENCES users(id),
     id_matiere INT,
     FOREIGN KEY (id_matiere) REFERENCES matiere (id) 
@@ -73,7 +71,7 @@ CREATE TABLE IF NOT EXISTS enseignant (
 
 CREATE TABLE IF NOT EXISTS responsable (
     id_enseignant INT,
-    FOREIGN KEY (id_enseignant) REFERENCES enseignant (id),
+    FOREIGN KEY (id_enseignant) REFERENCES enseignant (id_user),
     id_departement INT,
     FOREIGN KEY (id_departement) REFERENCES departement(id),
     dateDebut DATE,
@@ -83,7 +81,7 @@ CREATE TABLE IF NOT EXISTS responsable (
 
 CREATE TABLE IF NOT EXISTS evaluation (
     id_etudiant INT,
-    FOREIGN KEY (id_etudiant) REFERENCES etudiant(id),
+    FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_user),
     id_matiere INT, 
     FOREIGN KEY (id_matiere) REFERENCES matiere (id),
     date DATE,
@@ -320,16 +318,140 @@ INSERT INTO `etudiant`(`anneeEntree`, `id_user`) VALUES ('2020/09/01',32);
 INSERT INTO `etudiant`(`anneeEntree`, `id_user`) VALUES ('2020/09/01',33);
 
 
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,1,'2021/11/12',12);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,1,'2021/01/12',17);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,2,'2021/11/12',13);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,2,'2021/12/12',9);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,3,'2021/02/12',13);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,3,'2021/12/12',15);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,4,'2021/2/12',13);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,4,'2021/12/12',17);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,5,'2021/12/12',13);
-INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,5,'2021/2/12',7);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,1,'2021/11/12',8);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (9,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (10,1,'2021/11/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (11,1,'2021/11/12',17);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (12,1,'2021/11/12',13);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (13,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (14,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (15,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (16,1,'2021/11/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (17,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (18,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (19,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (20,1,'2021/11/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (21,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (22,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (23,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (24,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (25,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (26,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (27,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (28,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (29,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (30,1,'2021/11/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (31,1,'2021/11/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (32,1,'2021/11/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (33,1,'2021/11/12',12);
+
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,2,'2022/1/12',8);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (9,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (10,2,'2022/1/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (11,2,'2022/1/12',17);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (12,2,'2022/1/12',13);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (13,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (14,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (15,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (16,2,'2022/1/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (17,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (18,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (19,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (20,2,'2022/1/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (21,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (22,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (23,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (24,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (25,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (26,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (27,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (28,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (29,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (30,2,'2022/1/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (31,2,'2022/1/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (32,2,'2022/1/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (33,2,'2022/1/12',12);
+
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,3,'2021/3/12',8);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (9,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (10,3,'2021/3/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (11,3,'2021/3/12',17);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (12,3,'2021/3/12',13);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (13,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (14,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (15,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (16,3,'2021/3/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (17,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (18,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (19,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (20,3,'2021/3/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (21,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (22,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (23,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (24,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (25,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (26,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (27,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (28,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (29,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (30,3,'2021/3/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (31,3,'2021/3/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (32,3,'2021/3/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (33,3,'2021/3/12',12);
+
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,4,'2021/4/12',8);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (9,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (10,4,'2021/4/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (11,4,'2021/4/12',17);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (12,4,'2021/4/12',13);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (13,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (14,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (15,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (16,4,'2021/4/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (17,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (18,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (19,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (20,4,'2021/4/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (21,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (22,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (23,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (24,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (25,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (26,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (27,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (28,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (29,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (30,4,'2021/4/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (31,4,'2021/4/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (32,4,'2021/4/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (33,4,'2021/4/12',12);
+
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (8,5,'2021/6/12',8);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (9,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (10,5,'2021/6/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (11,5,'2021/6/12',17);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (12,5,'2021/6/12',13);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (13,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (14,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (15,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (16,5,'2021/6/12',9);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (17,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (18,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (19,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (20,5,'2021/6/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (21,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (22,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (23,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (24,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (25,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (26,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (27,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (28,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (29,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (30,5,'2021/6/12',16);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (31,5,'2021/6/12',12);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (32,5,'2021/6/12',14);
+INSERT INTO `evaluation`(`id_etudiant`, `id_matiere`, `date`, `note`) VALUES (33,5,'2021/6/12',12);
 
 
 
