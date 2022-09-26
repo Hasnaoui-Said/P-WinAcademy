@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `code_postal` varchar(20) DEFAULT NULL,
   `adresse` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `adresse`
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `college` (
   `id_adresse` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `id_adresse` (`id_adresse`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `college`
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `departement` (
   `id_college` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_college` (`id_college`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `departement`
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `enseignant` (
   PRIMARY KEY (`id_user`),
   KEY `id_matiere` (`id_matiere`),
   KEY `id_departement` (`id_departement`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `enseignant`
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `enseigner` (
   `annee` date NOT NULL,
   PRIMARY KEY (`id_etudiant`,`id_enseignant`,`annee`),
   KEY `id_enseignant` (`id_enseignant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `enseigner`
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
   `anneeEntree` date DEFAULT NULL,
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `etudiant`
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
   `note` double DEFAULT NULL,
   PRIMARY KEY (`id_etudiant`,`id_matiere`,`date`),
   KEY `id_matiere` (`id_matiere`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `evaluation`
@@ -218,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `matiere` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `matiere`
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `responsable` (
   PRIMARY KEY (`id_enseignant`,`id_departement`,`dateDebut`),
   UNIQUE KEY `id_departement_date_unique` (`id_departement`,`dateDebut`),
   KEY `id_departement` (`id_departement`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `responsable`
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `name` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `role`
@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `phone` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -337,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `date` date NOT NULL,
   PRIMARY KEY (`id_user`,`id_role`,`date`),
   KEY `id_role` (`id_role`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user_role`
