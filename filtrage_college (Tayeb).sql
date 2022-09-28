@@ -35,3 +35,7 @@ SELECT DISTINCT users.firstname, users.lastname FROM users, enseignant, departem
 WHERE college.numero = 4 AND departement.id_college = college.numero AND 
 enseignant.id_departement = departement.id
 
+-- matiere non evaluer
+SELECT DISTINCT matiere.name FROM matiere, etudiant, evaluation, users
+WHERE matiere.id NOT IN (SELECT evaluation.id_matiere FROM evaluation, etudiant
+                         WHERE evaluation.id_etudiant = etudiant.id_user AND etudiant.id_user = 38)
