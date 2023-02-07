@@ -132,7 +132,19 @@ public class Group {
     public String toString() {
         return "Group{" +
                 "id=" + id +
+                ", idCollege=" + idCollege +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public Group findMatiereById(int id) {
+        Iterator iterator = this.groups.iterator();
+        while (iterator.hasNext()){
+            Group group = (Group) iterator.next();
+            if(group.getId() == id){
+                return group;
+            }
+        }
+        return null;
     }
 }

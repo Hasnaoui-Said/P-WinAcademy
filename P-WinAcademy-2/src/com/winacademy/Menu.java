@@ -45,7 +45,7 @@ public class Menu {
             clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un entier");
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
             return this.menuPrincipale();
         }
     }
@@ -65,7 +65,7 @@ public class Menu {
             clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un entier");
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
             return this.menuDepartement(submenu);
         }
     }
@@ -85,7 +85,7 @@ public class Menu {
             clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un entier");
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
             return this.searchCollege(submenu);
         }
     }
@@ -102,7 +102,7 @@ public class Menu {
             clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un entier");
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
             return this.searchCollege(submenu);
         }
     }
@@ -113,9 +113,10 @@ public class Menu {
             Scanner scanner = new Scanner(System.in);
             System.out.println(message);
             String choix = scanner.next();
+            clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un true ou false!! ");
+            System.out.println(e.getMessage()+" Error!!:  entre un True ou Talse!!(T/F) ");
             return this.question(message);
         }
 
@@ -142,6 +143,7 @@ public class Menu {
 
                 startProcess.waitFor();
             }
+            System.out.println("==============================WinAcademy==============================");
         }catch(Exception e){
             System.out.println(e);
         }
@@ -162,7 +164,7 @@ public class Menu {
             clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un entier");
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
             return menuSalle(submenu);
         }
     }
@@ -178,9 +180,89 @@ public class Menu {
             clearConsole();
             return choix;
         }catch (Exception e){
-            System.out.println("Error!!:"+e.getMessage()+ "entre un entier");
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
             return menuChoixDep(departements);
         }
     }
+
+    public int menuMatiere(String submenu) {
+        try {
+            System.out.println("================= "+ submenu +" =================");
+            System.out.println("1: Liste des Matiere.");
+            System.out.println("2: Cree une Matiere.");
+            System.out.println("3: Supprimer une Matiere.");
+            System.out.println("4: Modifier une Matiere.");
+            System.out.println("5: return");
+            System.out.println("0: Quiter");
+            System.out.print("Votre choix: ");
+            Scanner scanner = new Scanner(System.in);
+            int choix = scanner.nextInt();
+            clearConsole();
+            return choix;
+        }catch (Exception e){
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
+            return menuSalle(submenu);
+        }
+    }
+
+    public int menuEnseignants(String submenu) {
+        try {
+            System.out.println("================= "+ submenu +" =================");
+            System.out.println("1: Liste des Ensiegnants.");
+            System.out.println("2: Cree une Ensiegnant.");
+            System.out.println("3: Supprimer une Ensiegnants.");
+            System.out.println("4: Modifier une Ensiegnants.");
+            System.out.println("5: return");
+            System.out.println("0: Quiter");
+            System.out.print("Votre choix: ");
+            Scanner scanner = new Scanner(System.in);
+            int choix = scanner.nextInt();
+            clearConsole();
+            return choix;
+        }catch (Exception e){
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
+            return menuSalle(submenu);
+        }
+    }
+
+    public int menuEtudiant(String submenu) {
+        try {
+            System.out.println("================= "+ submenu +" =================");
+            System.out.println("1: Liste des Etudiants.");
+            System.out.println("2: Cree une Etudiant.");
+            System.out.println("3: Supprimer une Etudiant.");
+            System.out.println("4: Modifier une Etudiant.");
+            System.out.println("5: return");
+            System.out.println("0: Quiter");
+            System.out.print("Votre choix: ");
+            Scanner scanner = new Scanner(System.in);
+            int choix = scanner.nextInt();
+            clearConsole();
+            return choix;
+        }catch (Exception e){
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
+            return menuEtudiant(submenu);
+        }
+    }
+ public int menuGroups(String submenu) {
+        try {
+            System.out.println("================= "+ submenu +" =================");
+            System.out.println("1: Liste des Groups.");
+            System.out.println("2: Cree une Group.");
+            System.out.println("3: Supprimer une Group.");
+            System.out.println("4: Modifier une Group.");
+            System.out.println("5: return");
+            System.out.println("0: Quiter");
+            System.out.print("Votre choix: ");
+            Scanner scanner = new Scanner(System.in);
+            int choix = scanner.nextInt();
+            clearConsole();
+            return choix;
+        }catch (Exception e){
+            System.out.println(e.getMessage()+ " Error!!: entre un entier");
+            return menuGroups(submenu);
+        }
+    }
+
 }
 

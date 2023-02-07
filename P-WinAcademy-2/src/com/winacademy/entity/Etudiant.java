@@ -24,7 +24,8 @@ public class Etudiant extends Users {
         Iterator<Etudiant> iterator = this.etudiants.iterator();
         while (iterator.hasNext()){
             Etudiant etudiant1 = iterator.next();
-            if (etudiant1.getEmail().equals(etudiant.getEmail())) return -1;
+            if (etudiant1.getId() == etudiant.getId()
+                    || etudiant1.getEmail().equals(etudiant.getEmail())) return -1;
         }
         this.etudiants.add(etudiant);
         return 1;
@@ -34,11 +35,11 @@ public class Etudiant extends Users {
         while (iterator.hasNext()){
             Etudiant etudiant1 = iterator.next();
             if (etudiant1.getId() == id) {
-                etudiants.remove(etudiant1);
+                this.etudiants.remove(etudiant1);
                 return 1;
             }
         }
-        return 1;
+        return -1;
     }
     public int addNote(Note note){
         Iterator iterator = this.getNotes().iterator();
@@ -64,6 +65,7 @@ public class Etudiant extends Users {
     @Override
     public String toString() {
         return "Etudiant{" +
+                super.toString()+
                 "id=" + id +
                 ", firstname='" + this.getFirstname() + '\'' +
                 ", lastname='" + this.getLastname() + '\'' +

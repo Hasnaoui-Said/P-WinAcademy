@@ -10,7 +10,7 @@ public class Ensiegnant extends Users{
     private LocalDate dateFonction;
     private int id_matiere;
     private int id_departement;
-    private Set<Ensiegnant> ensiegnants;
+    private HashSet<Ensiegnant> ensiegnants;
 
     private Set<Group> groups;
 
@@ -26,20 +26,49 @@ public class Ensiegnant extends Users{
         this.ensiegnants = new HashSet<>();
     }
     public int add(Ensiegnant ensiegnant){
+        Iterator iterator = this.ensiegnants.iterator();
+        while (iterator.hasNext()){
+            Ensiegnant ensiegnant1 = (Ensiegnant) iterator.next();
+            if(ensiegnant1.getId() == id){
+                return -1;
+            }
+        }
+        this.ensiegnants.add(ensiegnant);
         return 1;
     }
-
-    public Set<Ensiegnant> getEnsiegnants() {
+    public Ensiegnant findMatiereById(int id) {
+        Iterator iterator = this.ensiegnants.iterator();
+        while (iterator.hasNext()){
+            Ensiegnant ensiegnant = (Ensiegnant) iterator.next();
+            if(ensiegnant.getId() == id){
+                return ensiegnant;
+            }
+        }
+        return null;
+    }
+    public int delete(int id) {
+        Iterator iterator = this.ensiegnants.iterator();
+        while (iterator.hasNext()){
+            Ensiegnant ensiegnant = (Ensiegnant) iterator.next();
+            if(ensiegnant.getId() == id){
+                this.ensiegnants.remove(ensiegnant);
+                return 1;
+            }
+        }
+        return -1;
+    }
+    public HashSet<Ensiegnant> getEnsiegnants() {
         return ensiegnants;
     }
 
-    public void setEnsiegnants(Set<Ensiegnant> ensiegnants) {
+    public void setEnsiegnants(HashSet<Ensiegnant> ensiegnants) {
         this.ensiegnants = ensiegnants;
     }
 
     @Override
     public String toString() {
         return "Ensiegnant{" +
+                super.toString()+
                 ", dateFonction=" + dateFonction +
                 ", id_matiere=" + id_matiere +
                 ", id_departement=" + id_departement +

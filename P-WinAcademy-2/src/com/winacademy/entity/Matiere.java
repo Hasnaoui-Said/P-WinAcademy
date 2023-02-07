@@ -53,4 +53,26 @@ public class Matiere {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public Matiere findMatiereById(int id) {
+        Iterator iterator = this.matieres.iterator();
+        while (iterator.hasNext()){
+            Matiere matiere = (Matiere) iterator.next();
+            if(matiere.getId() == id){
+                return matiere;
+            }
+        }
+        return null;
+    }
+    public int delete(int id) {
+        Iterator iterator = this.matieres.iterator();
+        while (iterator.hasNext()){
+            Matiere matiere = (Matiere) iterator.next();
+            if(matiere.getId() == id){
+                this.matieres.remove(matiere);
+                return 1;
+            }
+        }
+        return -1;
+    }
 }

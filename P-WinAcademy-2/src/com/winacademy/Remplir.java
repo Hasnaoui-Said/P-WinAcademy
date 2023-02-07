@@ -17,12 +17,15 @@ public class Remplir {
             System.out.println("Error: college name or site are already exist!");
         return colleges.getColleges();
     }
-    public Set<Ensiegnant> ensiegnant(){
+    public HashSet<Ensiegnant> ensiegnant(){
         Ensiegnant ensiegnants = new Ensiegnant();
         ensiegnants.add(new Ensiegnant(1, "said", "hasnaoui", "saidhasnaoui@gmail.com", "21266554433", "1234", true,  LocalDate.now(),1,1));
         ensiegnants.add(new Ensiegnant(2, "hassane", "hassane", "hassane@gmail.com", "21266554433", "1234", true, LocalDate.now(),1,3));
         ensiegnants.add(new Ensiegnant(3, "karima", "karima", "karima@gmail.com", "21266554433", "1234", true,  LocalDate.now(),2,2));
         ensiegnants.add(new Ensiegnant(4, "khadija", "khadija", "khadija@gmail.com", "21266554433", "1234", true, LocalDate.now(),2,4));
+
+        for (Ensiegnant ensiegnant: ensiegnants.getEnsiegnants())
+            System.out.println(ensiegnant.toString());
         return ensiegnants.getEnsiegnants();
     }
     public Set<Departement> departement(){
@@ -40,7 +43,6 @@ public class Remplir {
                 System.out.println("Salle deja exist!!");
             if(departement.addSalle(new Salle("D1", 25)) != 1)
                 System.out.println("Salle deja exist!!");
-            System.out.println(departement.getSales().get(0));
         }
         return departements.getDepartements();
     }
